@@ -18,7 +18,7 @@ public class FinancialCalculators {
             CDCalculator();
         }
         else if(userChoice == 3){
-            // OACalculator();
+            OACalculator();
         }
     }
     public static void MortgageCalculator (){
@@ -40,7 +40,7 @@ public class FinancialCalculators {
         double loanAmountInterest = loanAmount * userInterestRate / (1 - Math.pow( 1 + userInterestRate, -1 * userLoanDuration)) ;
         double totalAmountInterest = (loanAmountInterest * userLoanDuration) - loanAmount;
 
-        System.out.printf("Here are your results: %.2f loan at %.2f%% for %.0f years, you would have %.2f /mo payment with a total interest amount of %.2f .", loanAmount, interestRate, loanDuration, loanAmountInterest, totalAmountInterest);
+        System.out.printf("Here are your results: $ %.2f loan at %.2f%% for %.0f years, you would have $ %.2f /mo payment with a total interest amount of $ %.2f .", loanAmount, interestRate, loanDuration, loanAmountInterest, totalAmountInterest);
     }
         public static void CDCalculator(){
             System.out.println("Here's the CD Calculator! ");
@@ -59,10 +59,28 @@ public class FinancialCalculators {
                 double totalAmount = initialDeposit * Math.pow(1 + dailyInterestAmount, investYears);
                 double totalAmountInterest = totalAmount - initialDeposit;
 
-            System.out.printf("If you deposit %.2f in a CD that earns %.2f%% interest and matures for %.2f years, your CD ending balance will be %.2f and you would have earned %.2f in interest.", initialDeposit, annualInterestRate, investYears, totalAmount, totalAmountInterest);
+            System.out.printf("If you deposit $ %.2f in a CD that earns %.2f%% interest and matures for %.2f years, your CD ending balance will be $ %.2f and you would have earned $ %.2f in interest.", initialDeposit, annualInterestRate, investYears, totalAmount, totalAmountInterest);
         }
 
         public static void OACalculator(){
+            //User Input
+            System.out.println("Here's the Ordinary Annuity Calculator! ");
+
+            System.out.print("How much do you want to get paid per month? ");
+                double monthlyPay = myScanner.nextDouble();
+
+            System.out.print("For how long do you want to get paid for? (years) ");
+                double payDuration = myScanner.nextDouble();
+
+            System.out.print("What is your expected interest rate? ");
+                double interestRate = myScanner.nextDouble();
+             //var
+
+             double monthsPaid = payDuration * 12;
+             double userInvestment = monthlyPay * ((1 - Math.pow((1 + (interestRate / 1200 )), monthsPaid * -1)) / (interestRate / 1200));
+
+             System.out.printf("To get that monthly payment, you would need to invest $ %.2f right now!", userInvestment);
+
 
 
         }
