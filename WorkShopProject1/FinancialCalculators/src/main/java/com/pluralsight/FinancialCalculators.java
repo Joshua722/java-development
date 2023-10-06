@@ -1,9 +1,8 @@
 package com.pluralsight;
-import java.sql.SQLOutput;
 import java.util.Scanner;
-public class MortgageCalculator {
-    public static void main(String[] args) {
-        Scanner myScanner = new Scanner(System.in);
+public class FinancialCalculators {
+    public static Scanner myScanner = new Scanner(System.in);
+    public static void MortgageCalculator (){
 
         System.out.println("Here's the Mortgage Calculator! ");
 
@@ -25,10 +24,12 @@ public class MortgageCalculator {
         double totalAmountInterest = (loanAmountInterest * userLoanDuration) - loanAmount;
 
         System.out.printf("Here are your results: %.2f loan at %.2f%% for %.0f years, you would have %.2f /mo payment with a total interest amount of %.2f .", loanAmount, interestRate, loanDuration, loanAmountInterest, totalAmountInterest);
-
-
-
     }
+        public static void CDCalculator(){
+
+
+        }
+
 
 
 }
